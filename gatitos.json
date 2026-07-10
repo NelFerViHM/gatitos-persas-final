@@ -1,0 +1,91 @@
+[{
+        "id": 1,
+        "nombre": "Gatito 1",
+        "genero": "Hembra",
+        "badgeClass": "girl",
+        "descripcion": "Hermosa gatita blanca con ojos celestes. Dulce y juguetona.",
+        "imagen": "IMG/gatito_1.jpeg",
+        "galeria": [
+            "IMG/gatito1_foto1.jpeg",
+            "IMG/gatito1_foto2.jpeg",
+            "IMG/gatito1_foto3.jpeg",
+            "IMG/gatito1_foto4.jpeg",
+            "IMG/gatito1_foto5.jpeg"
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Gatito 2",
+        "genero": "Macho",
+        "badgeClass": "boy",
+        "descripcion": "Persa Himalaya muy activo. Adora explorar el jardín.",
+        "imagen": "IMG/gatito_2.jpeg",
+        "galeria": [
+            "IMG/gatito2_foto1.jpeg",
+            "IMG/gatito2_foto2.jpeg",
+            "IMG/gatito2_foto3.jpeg",
+            "IMG/gatito2_foto4.jpeg",
+            "IMG/gatito2_foto5.jpeg"
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Gatito 3",
+        "genero": "Macho",
+        "badgeClass": "boy",
+        "descripcion": "Persa color crema. El más mimado y tranquilo del grupo.",
+        "imagen": "IMG/gatito_3.jpeg",
+        "galeria": [
+            "IMG/gatito3_foto1.jpeg",
+            "IMG/gatito3_foto2.jpeg",
+            "IMG/gatito3_foto3.jpeg",
+            "IMG/gatito3_foto4.jpeg",
+            "IMG/gatito3_foto5.jpeg"
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Gatito 4",
+        "genero": "Hembra",
+        "badgeClass": "girl",
+        "descripcion": "Persa tricolor. Tiene un pelaje espectacular y ojos redondos.",
+        "imagen": "IMG/gatito_4.jpeg",
+        "galeria": [
+            "IMG/gatito4_foto1.jpeg",
+            "IMG/gatito4_foto2.jpeg",
+            "IMG/gatito4_foto3.jpeg",
+            "IMG/gatito4_foto4.jpeg",
+            "IMG/gatito4_foto5.jpeg"
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Gatito 5",
+        "genero": "Hembra",
+        "badgeClass": "girl",
+        "descripcion": "Persa gris plata. Muy cariñosa, ideal para familias.",
+        "imagen": "IMG/gatito_5.jpeg",
+        "galeria": [
+            "IMG/gatito5_foto1.jpeg",
+            "IMG/gatito5_foto2.jpeg",
+            "IMG/gatito5_foto3.jpeg",
+            "IMG/gatito5_foto4.jpeg",
+            "IMG/gatito5_foto5.jpeg"
+        ]
+    },
+    {
+        "id": 6,
+        "nombre": "Gatito 6",
+        "genero": "Macho",
+        "badgeClass": "boy",
+        "descripcion": "Persa negro sólido. Ojos color cobre espectaculares.",
+        "imagen": "IMG/gatito_6.jpeg",
+        "galeria": [
+            "IMG/gatito6_foto1.jpeg",
+            "IMG/gatito6_foto2.jpeg",
+            "IMG/gatito6_foto3.jpeg",
+            "IMG/gatito6_foto4.jpeg",
+            "IMG/gatito6_foto5.jpeg"
+        ]
+    }
+]

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criadero de Gatitos Persas | Contacto</title>
+    <link rel="icon" href="IMG/icono.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="IMG/logo.png" alt="Logo Criadero" class="header-logo">
+            <div class="header-text">
+                <h1>Contacto</h1>
+                <p class="subtitle">Escríbenos para concretar tu adopción</p>
+            </div>
+        </div>
+        <nav aria-label="Menú principal">
+            <!-- ☰ Botón Hamburguesa visible solo en móviles -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        
+            <!-- Lista de enlaces que se ocultará/mostrará -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="#presentacion">Nosotros</a></li>
+                <li><a href="#cuidados">Cuidados</a></li>
+                <li><a href="#disponibles">Disponibles</a></li>
+                <li><a href="#carrito">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="content-section">
+            <h2>Ponte en Contacto</h2>
+            <p>Escríbenos para consultar tus dudas o coordinar la entrega en Bernal Oeste.</p>
+
+            <form id="form-contacto" class="contact-form" onsubmit="enviarWhatsApp(event)">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Correo electrónico</label>
+                    <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="reserva">Gatitos seleccionados para reservar:</label>
+                    <input type="text" id="reserva" name="reserva" readonly>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Consulta o mensaje adicional</label>
+                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿Tienes alguna consulta adicional?"
+                        required></textarea>
+                </div>
+
+                <button type="submit" class="submit-btn">Enviar Mensaje por WhatsApp</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <!-- Facebook Oficial -->
+            <a href="https://facebook.com" target="_blank" class="social-btn fb" aria-label="Visita nuestro Facebook">
+                <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="#ffffff" stroke="#1877F2"
+                    stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+                <span>Facebook</span>
+            </a>
+
+            <!-- Instagram Oficial -->
+            <a href="https://instagram.com" target="_blank" class="social-btn ig" aria-label="Visita nuestro Instagram">
+                <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>Instagram</span>
+            </a>
+
+            <!-- TikTok Oficial -->
+            <a href="https://tiktok.com" target="_blank" class="social-btn tk" aria-label="Visita nuestro TikTok">
+                <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                </svg>
+                <span>TikTok</span>
+            </a>
+        </div>
+
+    </footer>
+
+    <!-- Enlace al archivo JavaScript independiente requerido por el proyecto -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criadero de Gatitos Persas | Inicio</title>
+    <meta name="description"
+        content="Criadero familiar en Bernal Oeste. Crianza responsable de Gatitos Persas hermosos y saludables.">
+    <link rel="icon" href="IMG/icono.ico">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="header-container">
+            <img src="IMG/logo.png" alt="Logo Criadero" class="header-logo">
+            <div class="header-text">
+                <h1>Criadero de Gatitos Persas en Bernal</h1>
+                <p class="subtitle">Amor, naturaleza y pureza</p>
+            </div>
+        </div>
+        <nav aria-label="Menú principal">
+            <!-- ☰ Botón Hamburguesa visible solo en móviles -->
+            <button class="menu-toggle" id="menu-toggle" aria-label="Abrir menú de navegación">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        
+            <!-- Lista de enlaces que se ocultará/mostrará -->
+            <ul class="nav-links" id="nav-links">
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="#presentacion">Nosotros</a></li>
+                <li><a href="#cuidados">Cuidados</a></li>
+                <li><a href="#disponibles">Disponibles</a></li>
+                <li><a href="#carrito">Carrito</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+
+    </header>
+
+    <main>
+        <!-- Sección Nosotros -->
+        <section id="presentacion" class="content-section">
+            <h2>Nuestra Familia y Entorno</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Somos un <strong>criadero familiar hubicado en Bernal Oeste Partido de Quilmes Pcia. de
+                            Buenos Aires</strong> dedicado al bienestar y la cría responsable de
+                        Gatitos Persas. Ellos nacen y crecen en un ambiente familiar, donde disfrutan del aire libre
+                        y crecen en un entorno saludable y lleno de amor y en contacto permanente con nosotros,
+                        por lo cual estan acostumbrados al contacto permanente con personas.</p>
+                    <p>Nuestro deseo es entregar gatitos sanos, con un temperamento dulce y perfectamente adaptados a
+                        la vida en el hogar.</p>
+                    <h2>Contactenos por Whathsapp:</h2>
+                    <h3>Movil 1: 3886074604 (el numero es de Jujuy pero vivimos en Bernal Oeste)</h3>
+                    <h3>Movil 2: 1144137431</h3>
+                    <h4>Si lo desea puede concertar una visita tambien a estos numeros para conocerlos en persona</h4>
+                    <h4>Tambien puede ver la seccion Disponibles para ver sus fotos</h4>
+                </div>
+                <div class="about-IMG">
+                    <img src="IMG/criadero1.jpeg" alt="Entorno del criadero" class="about-img">
+                    <img src="IMG/criadero2.jpeg" alt="Nuestros michis" class="about-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Cuidados -->
+        <section id="cuidados" class="content-section highlight-section">
+            <h2>Cuidados Básicos del Persa</h2>
+            <p>Mantener a tu gatito persa feliz, saludable y con un pelaje espectacular requiere de atención constante y amor:</p>
+            <ul class="care-list">
+                <li><strong>Cepillado diario:</strong> Esencial para evitar nudos en su abundante pelo largo.</li>
+                <li><strong>Limpieza de facial:</strong> Cuidado diario de sus ojitos para evitar manchas por lagrimeo natural.</li>
+                <li><strong>Dieta adecuada:</strong> Alimento balanceado premium que cuide su digestión y pelaje.</li>
+                <li><strong>Muchos mimos y amor:</strong> Son gatos cariñosos y tranquilos que adoran la compañía familiar.</li>
+            </ul>
+        </section>
+
+        <!-- Sección Los Papas -->
+        <section id="los-papas" class="content-section">
+            <h2>Los papas</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>Ambos padres son Persas. La mama <strong>Karo Lina</strong> es <strong>Persa Carey</strong>
+                        y el papa <strong>Milo</strong> es <strong>Persa Himalayo Red Point</strong>. Ambos
+                        cuidadosamente criados, alimentados con productos
+                        premium, con su calendario de vacunas al dia y criados en un entorno saludable
+                        y con mucho amor.</p>
+                </div>
+                <div class="about-IMG">
+                    <h2>Karo Lina</h2>
+                    <img src="IMG/mama_foto1.jpeg" alt="Entorno del criadero" class="about-img">
+                    <h2>Milo</h2>
+                    <img src="IMG/papa_foto1.jpeg" alt="Nuestros michis" class="about-img">
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Galería de Gatitos Disponibles -->
+        <section id="disponibles" class="content-section">
+            <h2>Nuestros Gatitos Disponibles</h2>
+            <p>Elige al próximo integrante de tu familia:</p>
+            <p>Haz clic en la foto de cualquier gatito para ver su colección completa de imágenes.</p>
+            <!-- Este contenedor queda vacío. JavaScript inyectará las tarjetas aquí -->
+            <div class="cards-grid" id="contenedor-tarjetas"></div>
+        </section>
+
+        <!-- Sección Carrito -->
+        <section id="carrito" class="content-section">
+            <h2>Tu Selección de Michis</h2>
+            <div class="cart-box">
+                <p id="cart-empty-msg">Tu selección está vacía por el momento.</p>
+                <ul id="cart-items-list" class="cart-list"></ul>
+                <button class="checkout-btn" onclick="procesarCompra()">Confirmar Reserva</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal para las galerías de fotos -->
+    <div id="miModal" class="modal">
+        <div class="modal-content">
+            <span class="cerrar" onclick="cerrarGaleria()">&times;</span>
+            <h2 id="modal-titulo">Fotos del Gatito</h2>
+            <div id="modal-grid" class="modal-grid"></div>
+        </div>
+    </div>
+
+    <!-- Modal para ampliar la foto con Navegación (Lightbox) -->
+    <div id="modalVisor" class="modal-visor">
+        <span class="cerrar-visor" onclick="cerrarVisor()">&times;</span>
+
+        <!-- Flechas de navegación -->
+        <a class="prev" onclick="cambiarFoto(-1)">&#10094;</a>
+        <a class="next" onclick="cambiarFoto(1)">&#10095;</a>
+
+        <img id="fotoAmpliada" src="" alt="Foto ampliada" onclick="cambiarFoto(1)">
+        <div id="caption" style="color: white; margin-top: 10px; font-weight: bold;"></div>
+    </div>
+
+    <footer>
+        <div class="social-links">
+            <!-- Facebook Oficial -->
+            <a href="https://facebook.com" target="_blank" class="social-btn fb" aria-label="Visita nuestro Facebook">
+                <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="#ffffff" stroke="#1877F2"
+                    stroke-width="1" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                </svg>
+                <span>Facebook</span>
+            </a>
+
+            <!-- Instagram Oficial -->
+            <a href="https://instagram.com" target="_blank" class="social-btn ig" aria-label="Visita nuestro Instagram">
+                <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                </svg>
+                <span>Instagram</span>
+            </a>
+
+            <!-- TikTok Oficial -->
+            <a href="https://tiktok.com" target="_blank" class="social-btn tk" aria-label="Visita nuestro TikTok">
+                <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff"
+                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+                </svg>
+                <span>TikTok</span>
+            </a>
+        </div>
+
+    </footer>
+
+    <!-- Enlace al archivo JavaScript independiente requerido por el proyecto -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
