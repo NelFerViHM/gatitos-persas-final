@@ -770,3 +770,81 @@ footer {
         margin: 0;
     }
 }
+
+/* =================================================== */
+/* RESOLUCIÓN DE MAQUETA SIMÉTRICA: PAPÁS EN VERTICAL  */
+/* =================================================== */
+
+.modulo-papas-independiente {
+    margin-top: 40px;
+    padding-top: 30px;
+    border-top: 2px dashed rgba(255, 255, 255, 0.3);
+    display: grid;
+    grid-template-columns: 1fr;
+    /* Por defecto en móviles va en una columna */
+    gap: 32px;
+    /* Mismo espacio intermedio de tu grilla superior */
+}
+
+/* 🎯 ALINEACIÓN MATEMÁTICA EN PC: Copia exactamente el comportamiento de arriba */
+@media (min-width: 768px) {
+    .modulo-papas-independiente {
+        grid-template-columns: 1.2fr 1fr;
+        /* Espejo exacto de tu .about-grid */
+        align-items: center;
+        /* Mismo centrado vertical */
+    }
+}
+
+.papas-info-text-nuevo {
+    text-align: left;
+}
+
+/* 🔄 CAMBIO CLAVE: Pasa a flex vertical para apilar a Karo Lina y Milo */
+.papas-imagenes-horizontal-nueva {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px;
+    /* Misma separación que tus fotos del césped */
+    width: 100%;
+}
+
+.papa-item-nuevo {
+    text-align: left;
+    /* Alineación limpia a tono con el texto de la izquierda */
+}
+
+.papa-item-nuevo h3 {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 6px;
+}
+
+/* 📸 CLONACIÓN DE ESTILO: Idéntico a tus fotos de arriba (.about-img) */
+.papa-item-nuevo img {
+    width: 100% !important;
+    /* Toma el ancho exacto de la columna derecha */
+    height: 220px !important;
+    /* Misma altura exacta de tus otras imágenes */
+    object-fit: cover;
+    border-radius: 16px;
+    /* Mismo radio de curvatura sutil */
+    border: 4px solid white;
+    /* Tu marco blanco característico */
+    box-shadow: 0 6px 15px var(--shadow-color);
+    /* Tu sombra base unificada */
+    margin-top: 4px;
+    transition: transform 0.3s ease;
+}
+
+.papa-item-nuevo img:hover {
+    transform: scale(1.02);
+}
+
+/* Subrayado corto naranja */
+.linea-punteada-naranja-corta {
+    width: 50px;
+    border-bottom: 2px dashed var(--accent-color);
+    margin-bottom: 4px;
+}

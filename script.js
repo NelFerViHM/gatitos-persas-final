@@ -235,35 +235,6 @@ function cargarGatitosEnFormulario() {
     }
 }
 
-/*function enviarWhatsApp(e) {
-    e.preventDefault();
-
-    // 🔴 REEMPLAZÁ ESTE NÚMERO POR TU TELÉFONO REAL
-    const miTelefono = "5491123446028";
-
-    const nombre = document.getElementById('nombre').value;
-    const correo = document.getElementById('correo').value;
-    const txtTelefono = document.getElementById('telefono');
-    const reserva = document.getElementById('reserva').value;
-    const mensaje = document.getElementById('mensaje').value;
-
-    if (miTelefono === "5491122334455") {
-        alert("⚠️ Configuración incompleta: Modificá el número de teléfono en script.js");
-        return;
-    }
-
-    const textoMensaje = `¡Hola Criadero Gatitos Persas! 👋%0A%0AMi nombre es: *${encodeURIComponent(nombre)}*%0ACorreo: ${encodeURIComponent(correo)}%0AEstoy interesado en reservar: *${encodeURIComponent(reserva)}*%0A%0AMensaje adicional: ${encodeURIComponent(mensaje)}`;
-
-    alert(`✨ ¡Gracias ${nombre}! Solicitud procesada.\n\nTe redirigiremos a WhatsApp para enviar el mensaje directo. 🐾`);
-
-    const apiBase = "https:" + "//" + "wa.me" + "/";
-    const urlFinal = new URL(apiBase + miTelefono);
-    urlFinal.searchParams.append("text", decodeURIComponent(textoMensaje));
-
-    window.location.replace(urlFinal.href);
-    localStorage.removeItem('gatitosReservados');
-}*/
-
 // ===================================================
 // 5. VALIDACIÓN DE FORMULARIO Y ENVIO DE WHATSAPP
 // ===================================================
