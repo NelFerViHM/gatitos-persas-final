@@ -41,6 +41,8 @@ function agregarAlCarrito(nombreGatito) {
     if (!carrito.includes(nombreGatito)) {
         carrito.push(nombreGatito);
         actualizarInterfaz();
+        // 🚨 Alerta personalizada con el nombre del michi elegido
+        alert(`¡El Gatito ${nombreGatito} está reservado! Pasá por la sección Carrito para confirmar.`);
     } else {
         alert(nombreGatito + ' ya está en tu lista de reserva.');
     }
@@ -223,7 +225,7 @@ async function cargarGatitosDesdeAPI() {
 
 
 // ===================================================
-// 4. INTEGRACIÓN FORMULARIO Y API DE WHATSAPP
+// 4. CARGA DE GATITOS EN EL FORMULARIO
 // ===================================================
 function cargarGatitosEnFormulario() {
     const gatitos = JSON.parse(localStorage.getItem('gatitosReservados')) || [];
@@ -233,7 +235,7 @@ function cargarGatitosEnFormulario() {
     }
 }
 
-function enviarWhatsApp(e) {
+/*function enviarWhatsApp(e) {
     e.preventDefault();
 
     // 🔴 REEMPLAZÁ ESTE NÚMERO POR TU TELÉFONO REAL
@@ -241,6 +243,7 @@ function enviarWhatsApp(e) {
 
     const nombre = document.getElementById('nombre').value;
     const correo = document.getElementById('correo').value;
+    const txtTelefono = document.getElementById('telefono');
     const reserva = document.getElementById('reserva').value;
     const mensaje = document.getElementById('mensaje').value;
 
@@ -259,10 +262,10 @@ function enviarWhatsApp(e) {
 
     window.location.replace(urlFinal.href);
     localStorage.removeItem('gatitosReservados');
-}
+}*/
 
 // ===================================================
-// 5. VALIDACIÓN AVANZADA DE FORMULARIO (JS PURE)
+// 5. VALIDACIÓN DE FORMULARIO Y ENVIO DE WHATSAPP
 // ===================================================
 function enviarWhatsApp(e) {
     e.preventDefault();
@@ -272,18 +275,17 @@ function enviarWhatsApp(e) {
 
     const txtNombre = document.getElementById('nombre');
     const txtCorreo = document.getElementById('correo');
+    const txtTelefono = document.getElementById('telefono');
     const txtReserva = document.getElementById('reserva');
     const txtMensaje = document.getElementById('mensaje');
 
-    // --- LOGICA DE VALIDACIÓN EXIGIDA POR EL PROYECTO ---
-
-    // 1. Validar campos vacíos u obligatorios
-    if (txtNombre.value.trim() === "" || txtCorreo.value.trim() === "" || txtMensaje.value.trim() === "") {
+    // Validar campos vacíos u obligatorios 
+    if (txtNombre.value.trim() === "" || txtCorreo.value.trim() === "" || txtTelefono.value.trim() === "" || txtMensaje.value.trim() === "") {
         alert("❌ Por favor, completa todos los campos obligatorios del formulario.");
         return;
     }
 
-    // 2. Validar formato de Email mediante Expresión Regular (RegEx)
+    // Validar formato de Email mediante Expresión Regular (RegEx)
     const expresionEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!expresionEmail.test(txtCorreo.value.trim())) {
         alert("❌ El formato del correo electrónico no es válido. Verifica que incluya '@' y un dominio correcto.");
@@ -291,27 +293,44 @@ function enviarWhatsApp(e) {
         return;
     }
 
-    // Validación de seguridad por si olvidaste cambiar el teléfono por defecto
+    // Validación del teléfono: verifica que solo tenga números y un largo coherente
+    const expresionTelefono = /^[0-9]{8,15}$/;
+    if (!expresionTelefono.test(txtTelefono.value.trim())) {
+        alert("❌ Por favor, ingresa un número de teléfono válido (solo números, entre 8 y 15 dígitos).");
+        txtTelefono.focus();
+        return;
+    }
+
+
+    // Validación de seguridad por si olvide cambiar el teléfono por defecto
     if (miTelefono === "5491122334455") {
         alert("⚠️ Configuración incompleta: Modificá el número de teléfono en script.js");
         return;
     }
 
     // Si pasó todas las validaciones, procede con el armado del mensaje
-    const textoMensaje = `¡Hola Criadero Gatitos Persas! 👋%0A%0AMi nombre es: *${encodeURIComponent(txtNombre.value)}*%0ACorreo: ${encodeURIComponent(txtCorreo.value)}%0AEstoy interesado en reservar: *${encodeURIComponent(txtReserva.value)}*%0A%0AMensaje adicional: ${encodeURIComponent(txtMensaje.value)}`;
+    const textoMensaje = `¡Hola Criadero Gatitos Persas! 👋%0A%0AMi nombre es: *${encodeURIComponent(txtNombre.value)}*%0ACorreo: ${encodeURIComponent(txtCorreo.value)}%0ACelular Cliente: *${encodeURIComponent(txtTelefono.value)}*%0A%0AEstoy interesado en reservar: *${encodeURIComponent(txtReserva.value)}*%0A%0AMensaje adicional: ${encodeURIComponent(txtMensaje.value)}`;
 
-    // Alerta alegre de éxito en pantalla
-    alert(`✨ ¡Gracias ${txtNombre.value}! Tus datos han sido validados correctamente mediante JavaScript.\n\nAl presionar ACEPTAR, se abrirá el chat oficial de WhatsApp. 🐾`);
+    // Alerta de éxito en pantalla
+    alert(`✨ ¡Gracias ${txtNombre.value}! Tus datos han sido validados correctamente!!.\n\nAl presionar ACEPTAR, se abrirá el chat oficial de WhatsApp. 🐾`);
 
     // Redirección segura anti-bloqueo
     const apiBase = "https:" + "//" + "wa.me" + "/";
     const urlFinal = new URL(apiBase + miTelefono);
     urlFinal.searchParams.append("text", decodeURIComponent(textoMensaje));
 
-    window.location.replace(urlFinal.href);
+    // 🚀 MEJORA DE FLUJO: Abre WhatsApp en una pestaña nueva sin abandonar tu web
+    window.open(urlFinal.href, '_blank');
+
+    // Avisamos de forma prolija al usuario que la web sigue disponible de fondo
+    alert("🟢 ¡Reserva enviada! El chat se abrió en una nueva pestaña de tu navegador. Podés seguir navegando en el criadero.");
+
 
     // Limpieza de estados
     localStorage.removeItem('gatitosReservados');
     document.getElementById('form-contacto').reset();
     document.getElementById('reserva').value = "Ningún gatito seleccionado.";
+
+    // 🎯 REDIRECCIÓN COMPLETA: Devuelve al cliente directo al carrito vacío en disponibles.html
+    window.location.href = "disponibles.html#carrito";
 } // <-- ESTA ES LA LLAVE QUE FALTA PARA CERRAR LA FUNCIÓN ENVIARWHATSAPP
