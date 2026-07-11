@@ -40,14 +40,7 @@ Cumpliendo con las directrices de orden y separación de responsabilidades en in
 
 ---
 
-
-# 🐾 Criadero Familiar de Gatitos Persas - Plataforma de Reservas (Versión Multipágina)
-
-Este proyecto consiste en una plataforma web interactiva, responsive y dinámica diseñada para la gestión, exhibición y pre-reserva de gatitos de raza Persa. Desarrollado originalmente como un sitio estático, esta versión representa una evolución arquitectónica avanzada hacia un ecosistema multipágina desacoplado, sirviendo como herramienta de emprendimiento económico personal en Bernal Oeste y como entrega final para el programa de formación de desarrollo de software Front-End.
-
----
-
-## 🏗️ 1. Evolución de la Arquitectura (Ecosistema de 3 Páginas)
+## 🏗️ 4. Evolución de la Arquitectura (Ecosistema de 3 Páginas)
 
 El hito técnico más importante de esta fase de desarrollo es la transición de una landing page unificada hacia una arquitectura estructurada de tres pantallas independientes, optimizando drásticamente el flujo de usuario (UX) y eliminando redundancias de código en el DOM:
 
@@ -58,7 +51,7 @@ El hito técnico más importante de esta fase de desarrollo es la transición de
 
 ---
 
-## 🧩 2. Componentes e Interactividad Avanzada
+## 🧩 5. Componentes e Interactividad Avanzada
 
 * **Consumo Asíncrono (`fetch` + `async/await`):** Toda la información de los felinos vive desacoplada en `gatitos.json`. El motor asíncrono en `script.js` realiza la petición HTTP, procesa los datos y renderiza de forma dinámica las tarjetas mediante manipulación avanzada del DOM (`document.createElement` y `element.dataset`).
 * **Manejo de Errores Silencioso:** Las funciones globales del script cuentan con condicionales de control estricto (ej: `if (!list) return;`). Esto blinda la aplicación, permitiendo que un único archivo `script.js` asista a las tres páginas en simultáneo sin disparar excepciones de nodos inexistentes en la consola del navegador.
@@ -67,7 +60,7 @@ El hito técnico más importante de esta fase de desarrollo es la transición de
 
 ---
 
-## 🛠️ 3. Estructura del Directorio de Trabajo
+## 🛠️ 6. Estructura del Directorio de Trabajo
 
 * `index.html`: Estructura semántica de la portada institucional.
 * `disponibles.html`: Contenedor de catálogo dinámico y pasarela de pre-reserva.
@@ -80,14 +73,14 @@ El hito técnico más importante de esta fase de desarrollo es la transición de
 
 ---
 
-## 🚀 4. Próximos Hitos de Desarrollo (Escalabilidad Comercial)
+## 🚀 Próximos Hitos de Desarrollo (Escalabilidad Comercial)
 
 De cara a la expansión del negocio, el mapa de ruta contempla:
 
 1. Migración de la sección de cuidados hacia un módulo independiente (`cuidados.html`).
 2. Implementación de una base de datos local secundaria (`accesorios.json`) para la recomendación y futura venta de accesorios y productos premium del criadero.
 
-## 📚 4. Metodología de Elaboración y Fuentes
+## 📚 Metodología de Elaboración y Fuentes
 
 * **Formación de Grado:** Aplicación de fundamentos de ingeniería de requerimientos y lógica estructural de la carrera de **Analista de Sistemas**.
 * **Actualización Tecnológica:** Integración de conceptos adquiridos en el trayecto de **Full Stack Python** (Programa Codo a Codo) y la cursada actual dentro del programa de **Talento Tech**.
