@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criadero de Gatitos Persas | Contacto</title>
+    <title>Criadero de Gatitos Persas | Inicio</title>
+    <meta name="description"
+        content="Criadero familiar en Bernal Oeste. Crianza responsable de Gatitos Persas hermosos y saludables.">
     <link rel="icon" href="IMG/icono.ico">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -15,8 +17,8 @@
         <div class="header-container">
             <img src="IMG/logo.png" alt="Logo Criadero" class="header-logo">
             <div class="header-text">
-                <h1>Contacto</h1>
-                <p class="subtitle">Escríbenos para concretar tu adopción</p>
+                <h1>Criadero de Gatitos Persas en Bernal</h1>
+                <p class="subtitle">Amor, naturaleza y pureza</p>
             </div>
         </div>
         <nav aria-label="Menú principal">
@@ -32,44 +34,56 @@
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="index.html#presentacion">Nosotros</a></li>
                 <li><a href="index.html#cuidados">Cuidados</a></li>
-                <li><a href="disponibles.html">Disponibles</a></li>
+                <li><a href="disponibles.html" class="active">Disponibles</a></li>
                 <li><a href="disponibles.html#carrito">Carrito</a></li>
-                <li><a href="contacto.html" class="active">Contacto</a></li>
+                <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
+
     </header>
 
     <main>
-        <section class="content-section">
-            <h2>Ponte en Contacto</h2>
-            <p>Escríbenos para consultar tus dudas o coordinar la entrega en Bernal Oeste.</p>
+        
+        <!-- Sección Galería de Gatitos Disponibles -->
+        <section id="disponibles" class="content-section">
+            <h2>Nuestros Gatitos Disponibles</h2>
+            <p>Elige al próximo integrante de tu familia:</p>
+            <p>Haz clic en la foto de cualquier gatito para ver su colección completa de imágenes.</p>
+            <!-- Este contenedor queda vacío. JavaScript inyectará las tarjetas aquí -->
+            <div class="cards-grid" id="contenedor-tarjetas"></div>
+        </section>
 
-            <form id="form-contacto" class="contact-form" onsubmit="enviarWhatsApp(event)">
-                <div class="form-group">
-                    <label for="nombre">Nombre completo</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="correo">Correo electrónico</label>
-                    <input type="email" id="correo" name="correo" placeholder="correo@ejemplo.com" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="reserva">Gatitos seleccionados para reservar:</label>
-                    <input type="text" id="reserva" name="reserva" readonly>
-                </div>
-
-                <div class="form-group">
-                    <label for="mensaje">Consulta o mensaje adicional</label>
-                    <textarea id="mensaje" name="mensaje" rows="4" placeholder="¿Tienes alguna consulta adicional?"
-                        required></textarea>
-                </div>
-
-                <button type="submit" class="submit-btn">Enviar Mensaje por WhatsApp</button>
-            </form>
+        <!-- Sección Carrito -->
+        <section id="carrito" class="content-section">
+            <h2>Tu Selección de Michis</h2>
+            <div class="cart-box">
+                <p id="cart-empty-msg">Tu selección está vacía por el momento.</p>
+                <ul id="cart-items-list" class="cart-list"></ul>
+                <button class="checkout-btn" onclick="procesarCompra()">Confirmar Reserva</button>
+            </div>
         </section>
     </main>
+
+    <!-- Modal para las galerías de fotos -->
+    <div id="miModal" class="modal">
+        <div class="modal-content">
+            <span class="cerrar" onclick="cerrarGaleria()">&times;</span>
+            <h2 id="modal-titulo">Fotos del Gatito</h2>
+            <div id="modal-grid" class="modal-grid"></div>
+        </div>
+    </div>
+
+    <!-- Modal para ampliar la foto con Navegación (Lightbox) -->
+    <div id="modalVisor" class="modal-visor">
+        <span class="cerrar-visor" onclick="cerrarVisor()">&times;</span>
+
+        <!-- Flechas de navegación -->
+        <a class="prev" onclick="cambiarFoto(-1)">&#10094;</a>
+        <a class="next" onclick="cambiarFoto(1)">&#10095;</a>
+
+        <img id="fotoAmpliada" src="" alt="Foto ampliada" onclick="cambiarFoto(1)">
+        <div id="caption" style="color: white; margin-top: 10px; font-weight: bold;"></div>
+    </div>
 
     <footer>
         <div class="social-links">

@@ -32,10 +32,10 @@
             <!-- Lista de enlaces que se ocultará/mostrará -->
             <ul class="nav-links" id="nav-links">
                 <li><a href="index.html" class="active">Inicio</a></li>
-                <li><a href="#presentacion">Nosotros</a></li>
-                <li><a href="#cuidados">Cuidados</a></li>
-                <li><a href="#disponibles">Disponibles</a></li>
-                <li><a href="#carrito">Carrito</a></li>
+                <li><a href="index.html#presentacion">Nosotros</a></li>
+                <li><a href="index.html#cuidados">Cuidados</a></li>
+                <li><a href="disponibles.html">Disponibles</a></li>
+                <li><a href="disponibles.html#carrito">Carrito</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
@@ -99,47 +99,7 @@
                 </div>
             </div>
         </section>
-
-        <!-- Sección Galería de Gatitos Disponibles -->
-        <section id="disponibles" class="content-section">
-            <h2>Nuestros Gatitos Disponibles</h2>
-            <p>Elige al próximo integrante de tu familia:</p>
-            <p>Haz clic en la foto de cualquier gatito para ver su colección completa de imágenes.</p>
-            <!-- Este contenedor queda vacío. JavaScript inyectará las tarjetas aquí -->
-            <div class="cards-grid" id="contenedor-tarjetas"></div>
-        </section>
-
-        <!-- Sección Carrito -->
-        <section id="carrito" class="content-section">
-            <h2>Tu Selección de Michis</h2>
-            <div class="cart-box">
-                <p id="cart-empty-msg">Tu selección está vacía por el momento.</p>
-                <ul id="cart-items-list" class="cart-list"></ul>
-                <button class="checkout-btn" onclick="procesarCompra()">Confirmar Reserva</button>
-            </div>
-        </section>
     </main>
-
-    <!-- Modal para las galerías de fotos -->
-    <div id="miModal" class="modal">
-        <div class="modal-content">
-            <span class="cerrar" onclick="cerrarGaleria()">&times;</span>
-            <h2 id="modal-titulo">Fotos del Gatito</h2>
-            <div id="modal-grid" class="modal-grid"></div>
-        </div>
-    </div>
-
-    <!-- Modal para ampliar la foto con Navegación (Lightbox) -->
-    <div id="modalVisor" class="modal-visor">
-        <span class="cerrar-visor" onclick="cerrarVisor()">&times;</span>
-
-        <!-- Flechas de navegación -->
-        <a class="prev" onclick="cambiarFoto(-1)">&#10094;</a>
-        <a class="next" onclick="cambiarFoto(1)">&#10095;</a>
-
-        <img id="fotoAmpliada" src="" alt="Foto ampliada" onclick="cambiarFoto(1)">
-        <div id="caption" style="color: white; margin-top: 10px; font-weight: bold;"></div>
-    </div>
 
     <footer>
         <div class="social-links">
