@@ -39,30 +39,59 @@ body {
     line-height: 1.6;
 }
 
-/* Header */
+/* =================================================== */
+/* REFACTOR DE CABECERA: ARQUITECTURA DE DOS COLUMNAS  */
+/* =================================================== */
+
 header {
     background-color: var(--panel-bg);
-        border-bottom: 4px solid var(--primary-color);
-        padding: 10px 20px;
-        position: sticky;
-        top: 0;
-        z-index: 100;
-        box-shadow: 0 4px 10px var(--shadow-color);
-    
-        /* 🎯 SOLUCIÓN DEFINITIVA DE PC: Obliga al logo/título a estar arriba y al menú abajo */
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 10px !important;
+    border-bottom: 4px solid var(--primary-color);
+    padding: 12px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 4px 10px var(--shadow-color);
 }
 
-.header-container {
+/* 🧱 LA MAQUETA EN ESCRITORIO: Tu gran idea implementada */
+.header-grid-sistema {
+    display: grid !important;
+    grid-template-columns: auto 1fr;
+    /* Columna fija para el logo, columna elástica para el resto */
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 25px;
+    /* Separación fija garantizada que evita colisiones */
+}
+
+.columna-logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
-    max-width: 1200px;
-    margin: 0 auto 5px auto;
-    flex-wrap: wrap;
+}
+
+.columna-contenido-derecha {
+    display: flex;
+    flex-direction: column;
+    /* Apila el título arriba y la botonera abajo de forma limpia */
+    gap: 12px;
+    width: 100%;
+}
+
+/* Mantenemos tu hermoso diseño del logo redondo */
+.header-logo {
+    width: 85px;
+    height: 85px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    background: white;
+}
+
+.header-text {
+    text-align: center;
+    /* Mantiene tus textos centrados respecto a la botonera */
 }
 
 .header-logo {
@@ -150,62 +179,82 @@ nav li a.active {
     transition: all 0.3s ease;
 }
 
-/* --- ADAPTACIÓN AMPLIADA PARA CELULARES Y TABLETS (HASTA 860PX) --- */
-@media (max-width: 855px) {
-
-    header {
-        padding: 8px 15px !important;
+/* 🎯 COMPRESIÓN DE ESCRITORIO CHICO: Achica los botones entre 901px y 1024px para que entren siempre */
+@media (min-width: 871px) and (max-width: 1024px) {
+    nav li a {
+        padding: 8px 14px !important;
+        /* Botones más compactos */
+        font-size: 0.9rem !important;
+        /* Letra sutilmente más chica */
     }
 
-    .header-container {
+    .header-grid-sistema {
+        gap: 15px !important;
+        /* Menos espacio muerto */
+    }
+}
+
+/* --- ADAPTACIÓN AMPLIADA PARA CELULARES Y TABLETS (HASTA 768PX) --- */
+@media (max-width: 870px) {
+
+    /* 🎯 El Grid en celular pasa a formato horizontal plano súper compacto */
+    .header-grid-sistema {
         display: flex !important;
         flex-direction: row !important;
         align-items: center !important;
         justify-content: flex-start !important;
         gap: 12px !important;
-        margin: 0 auto 5px auto !important;
+    }
+
+    header {
+        padding: 8px 15px !important;
+        /* Achica la franja azul en celulares */
     }
 
     .header-logo {
         width: 55px !important;
+        /* Logo chiquito de celular */
         height: 55px !important;
-        border: 2px solid var(--accent-color) !important;
+        margin-right: 0 !important;
     }
-    
+
+    .columna-contenido-derecha {
+        display: flex !important;
+        flex-direction: row !important;
+        /* Pone el texto al lado del botón hamburguesa */
+        align-items: center !important;
+        justify-content: space-between !important;
+        flex: 1;
+    }
+
     .header-text {
         text-align: left !important;
-        flex: 1;
+        /* Texto alineado al logo */
     }
 
     header h1 {
         font-size: 1.35rem !important;
+        /* Tipografía domada para celular */
         line-height: 1.1 !important;
-        letter-spacing: -0.3px !important;
     }
 
     header .subtitle {
         font-size: 0.85rem !important;
-        margin-top: 2px !important;
     }
 
-    /* 🎯 CORRECCIÓN PUNTO 1: Forzamos el botón hamburguesa a Negro Puro */
+    /* Botón hamburguesa negro de alta visibilidad a la derecha */
     .menu-toggle {
         display: flex !important;
         margin: 0 0 0 auto !important;
         z-index: 1000 !important;
-        height: 18px !important;
-        width: 26px !important;
     }
 
-    /* Forzar las 3 líneas internas del botón a color negro pleno */
     .menu-toggle .bar {
         background-color: #000000 !important;
-        /* Negro bien visible */
-        height: 3px !important;
-        border-radius: 2px !important;
+        /* Negro pleno */
     }
 
-    /* Oculta y fija la lista del menú desplegable */
+    /* Oculta y fija el menú desplegable en celulares */
     .nav-links {
         display: none !important;
         flex-direction: column !important;
@@ -216,8 +265,6 @@ nav li a.active {
         left: 0 !important;
         padding: 15px 0 !important;
         border-bottom: 3px solid var(--primary-color) !important;
-        box-shadow: 0 8px 20px var(--shadow-color) !important;
-        gap: 10px !important;
         z-index: 999 !important;
     }
 
@@ -230,8 +277,6 @@ nav li a.active {
         text-align: center !important;
         width: 80% !important;
         margin: 0 auto !important;
-        padding: 8px 0 !important;
-        font-size: 0.95rem !important;
     }
 }
 
