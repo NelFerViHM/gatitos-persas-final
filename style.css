@@ -42,12 +42,17 @@ body {
 /* Header */
 header {
     background-color: var(--panel-bg);
-    border-bottom: 4px solid var(--primary-color);
-    padding: 10px 20px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 4px 10px var(--shadow-color);
+        border-bottom: 4px solid var(--primary-color);
+        padding: 10px 20px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 4px 10px var(--shadow-color);
+    
+        /* 🎯 SOLUCIÓN DEFINITIVA DE PC: Obliga al logo/título a estar arriba y al menú abajo */
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 10px !important;
 }
 
 .header-container {
@@ -145,61 +150,88 @@ nav li a.active {
     transition: all 0.3s ease;
 }
 
-/* --- ADAPTACIÓN PARA CELULARES Y TABLETS --- */
-@media (max-width: 768px) {
+/* --- ADAPTACIÓN AMPLIADA PARA CELULARES Y TABLETS (HASTA 860PX) --- */
+@media (max-width: 855px) {
+
+    header {
+        padding: 8px 15px !important;
+    }
+
+    .header-container {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        gap: 12px !important;
+        margin: 0 auto 5px auto !important;
+    }
+
+    .header-logo {
+        width: 55px !important;
+        height: 55px !important;
+        border: 2px solid var(--accent-color) !important;
+    }
+    
+    .header-text {
+        text-align: left !important;
+        flex: 1;
+    }
+
+    header h1 {
+        font-size: 1.35rem !important;
+        line-height: 1.1 !important;
+        letter-spacing: -0.3px !important;
+    }
+
+    header .subtitle {
+        font-size: 0.85rem !important;
+        margin-top: 2px !important;
+    }
+
+    /* 🎯 CORRECCIÓN PUNTO 1: Forzamos el botón hamburguesa a Negro Puro */
     .menu-toggle {
-        display: flex;
-        /* Muestra el botón de las 3 líneas */
-        margin: 0 auto;
-        /* Lo centra en la cabecera */
+        display: flex !important;
+        margin: 0 0 0 auto !important;
+        z-index: 1000 !important;
+        height: 18px !important;
+        width: 26px !important;
     }
 
-    /* El menú se transforma en un panel vertical desplegable */
+    /* Forzar las 3 líneas internas del botón a color negro pleno */
+    .menu-toggle .bar {
+        background-color: #000000 !important;
+        /* Negro bien visible */
+        height: 3px !important;
+        border-radius: 2px !important;
+    }
+
+    /* Oculta y fija la lista del menú desplegable */
     .nav-links {
-        display: none;
-        /* Oculto por defecto */
+        display: none !important;
         flex-direction: column !important;
-        width: 100%;
-        background-color: var(--panel-bg);
-        position: absolute;
-        top: calc(100% + 15px);
-        /* Se despliega justo debajo del encabezado */
-        left: 0;
-        padding: 20px 0 !important;
-        border: 2px solid var(--primary-color);
-        border-radius: 16px;
-        box-shadow: 0 10px 25px var(--shadow-color);
-        gap: 15px !important;
-        z-index: 105;
-        animation: slideDown 0.3s ease forwards;
+        width: 100% !important;
+        background-color: var(--panel-bg) !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        padding: 15px 0 !important;
+        border-bottom: 3px solid var(--primary-color) !important;
+        box-shadow: 0 8px 20px var(--shadow-color) !important;
+        gap: 10px !important;
+        z-index: 999 !important;
     }
 
-    /* Clase que agrega JavaScript para mostrar el menú */
     .nav-links.open {
         display: flex !important;
     }
 
     nav li a {
-        display: block;
-        text-align: center;
-        width: 80%;
-        margin: 0 auto;
-        padding: 12px 0 !important;
-    }
-
-    /* ANIMACIÓN: El botón ☰ se convierte en una X al abrirse */
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: translateY(9px) rotate(45deg);
-        background-color: var(--accent-color);
-    }
-
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: translateY(-9px) rotate(-45deg);
-        background-color: var(--accent-color);
+        display: block !important;
+        text-align: center !important;
+        width: 80% !important;
+        margin: 0 auto !important;
+        padding: 8px 0 !important;
+        font-size: 0.95rem !important;
     }
 }
 
@@ -268,8 +300,6 @@ p {
         align-items: center;
     }
 }
-
-
 
 .about-images {
     display: flex;
