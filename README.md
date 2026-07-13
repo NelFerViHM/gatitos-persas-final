@@ -51,7 +51,7 @@ El hito técnico más importante de esta fase de desarrollo es la transición de
 
 ---
 
-## 🧩 5. Componentes e Interactividad Avanzada
+## 🧩 5. Componentes e Interactividad
 
 * **Consumo Asíncrono (`fetch` + `async/await`):** Toda la información de los felinos vive desacoplada en `gatitos.json`. El motor asíncrono en `script.js` realiza la petición HTTP, procesa los datos y renderiza de forma dinámica las tarjetas mediante manipulación avanzada del DOM (`document.createElement` y `element.dataset`).
 * **Manejo de Errores Silencioso:** Las funciones globales del script cuentan con condicionales de control estricto (ej: `if (!list) return;`). Esto blinda la aplicación, permitiendo que un único archivo `script.js` asista a las tres páginas en simultáneo sin disparar excepciones de nodos inexistentes en la consola del navegador.
@@ -70,6 +70,16 @@ El hito técnico más importante de esta fase de desarrollo es la transición de
 * `gatitos.json`: Repositorio local de datos estructurado en formato clave-valor.
 * `README_old.md`: Archivo histórico conservado localmente como bitácora de control de cambios.
 * `/IMG/`: Directorio local estandarizado para almacenamiento de recursos multimedia optimizados (`.jpeg`).
+
+---
+
+## 🎨 7. Correccion de la caracteristica Responsive (Refactor Reciente)
+
+Para resolver defectos de maquetación en pantallas medianas y móviles, se implementaron soluciones avanzadas de diseño adaptativo en la hoja de estilos:
+
+* **Estructura de Cabecera Blindada (CSS Grid):** Se refactorizó el `<header>` de escritorio migrándolo a una arquitectura de dos columnas (`grid-template-columns: auto 1fr`). Al aislar el logotipo en una celda independiente a la izquierda y agrupar el bloque de textos y la botonera a la derecha, se anuló de forma matemática el riesgo de colisión o superposición de elementos sobre la tangente vertical del logo.
+* **Calibración Técnica de Breakpoints (Escudo de 870px):** Mediante pruebas empíricas en el viewport, se fijó el punto de quiebre móvil de forma estricta en los **`870px`**. Por debajo de este límite, el encabezado se contrae elásticamente en una cinta horizontal compacta de mínimo espesor, el texto se alinea a la izquierda y el menú de navegación se oculta de forma segura tras un botón hamburguesa configurado en negro pleno (`#000000`) para garantizar la máxima accesibilidad y contraste. Por encima de los `871px`, el sistema activa una regla de compresión elástica para asegurar la fluidez de la barra en laptops.
+* **Simetría Vertical de Reproductores:** Se corrigió el problema de los espacios vacíos en la portada desacoplando el bloque de "Los Papás" de la grilla principal. Las imágenes de Karo Lina y Milo se estructuraron de manera secuencial vertical clonando de forma exacta las dimensiones base, los marcos blancos de 4px, las sombras y los radios de curvatura de 16px del bloque superior, garantizando una perfecta simetría geométrica.
 
 ---
 
