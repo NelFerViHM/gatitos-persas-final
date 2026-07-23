@@ -171,7 +171,7 @@ async function cargarGatitosDesdeAPI() {
     console.log("Intentando cargar la API de gatitos...");
     const gridContenedor = document.getElementById('contenedor-tarjetas');
 
-    if (!gridContenedor) return; // Si no está en index.html, frena de forma segura
+    if (!gridContenedor) return; // Si no está en disponibles.html, frena de forma segura
 
     try {
         const respuesta = await fetch('gatitos.json');
@@ -188,7 +188,18 @@ async function cargarGatitosDesdeAPI() {
             const cardElement = document.createElement('div');
             cardElement.className = 'cat-card';
 
-            // Inyectamos el HTML de la tarjeta estructural
+            // 🚨 1. LÓGICA CONDICIONAL DE RESERVA COMERCIAL
+            let botonHTML = "";
+            if (gatito.reservado === true || gatito.reservado === "true") {
+                // Si ya está señado: botón gris, cursor bloqueado, sin evento de clic y opacidad a la tarjeta
+                cardElement.style.opacity = "0.75";
+                botonHTML = `<button class="add-cart-btn" style="background-color: #7f8c8d; cursor: not-allowed; box-shadow: none;" disabled>Reservado 🔒</button>`;
+            } else {
+                // Si está libre: tu botón verde original de siempre conectado al carrito
+                botonHTML = `<button class="add-cart-btn" onclick="agregarAlCarrito('${gatito.nombre}')">Reservar</button>`;
+            }
+
+            // Inyectamos el HTML de la tarjeta estructural con EDAD y PRECIO
             cardElement.innerHTML = `
                 <div class="card-image">
                     <img src="${gatito.imagen}" alt="${gatito.nombre}" class="img-michi-galeria" style="cursor: pointer;">
@@ -196,8 +207,20 @@ async function cargarGatitosDesdeAPI() {
                 <div class="card-content">
                     <h3>${gatito.nombre}</h3>
                     <span class="badge ${gatito.badgeClass}">${gatito.genero}</span>
+                    
+                    <!-- ⏳ NUEVO DATO VISUAL: EDAD -->
+                    <p style="font-size: 0.95rem; font-weight: 700; color: var(--accent-color); margin: 8px 0 2px 0;">
+                        ⏳ Edad: ${gatito.edad}
+                    </p>
+
                     <p>${gatito.descripcion}</p>
-                    <button class="add-cart-btn" onclick="agregarAlCarrito('${gatito.nombre}')">Reservar</button>
+
+                    <!-- 💰 NUEVO DATO VISUAL: PRECIO COMERCIAL -->
+                    <p class="precio" style="font-weight: 800; font-size: 1.3rem; color: var(--text-color); margin-bottom: 12px;">
+                        $${gatito.precio}
+                    </p>
+
+                    ${botonHTML}
                 </div>
             `;
 
@@ -222,6 +245,7 @@ async function cargarGatitosDesdeAPI() {
         gridContenedor.innerHTML = `<p style="color:red; font-weight:bold;">⚠️ Error al cargar el catálogo de gatitos. Por favor, intente más tarde.</p>`;
     }
 }
+
 
 
 // ===================================================

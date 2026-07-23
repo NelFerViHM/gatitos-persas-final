@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Gatitos Persas</title>
+    <!-- 📄 ENLACE A TUS DOS ARCHIVOS CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <main>
+        <!-- 🔑 BLOQUE 1: PANTALLA DE LOGUEO -->
+        <div id="login-admin" class="admin-box">
+            <h2>Ingreso Administrador</h2>
+            <div class="linea-punteada-naranja"></div>
+            <label for="pass-admin">Contraseña de Seguridad:</label>
+            <input type="password" id="pass-admin" class="form-control" placeholder="Introduce tu clave secreta">
+            <button onclick="verificarClave()" class="btn-admin">Ingresar al Panel</button>
+        </div>
+
+        <!-- 📝 BLOQUE 2: FORMULARIO DE CARGA -->
+        <div id="panel-carga" class="admin-box" style="display: none;">
+            <h2>Cargar Nuevo Gatito a la Venta</h2>
+            <div class="linea-punteada-naranja"></div>
+
+            <form id="form-nuevo-michi" onsubmit="generarCodigoJSON(event)">
+                <label for="michi-nombre">Nombre del Gatito:</label>
+                <input type="text" id="michi-nombre" class="form-control" placeholder="Ej: Gatito 7" required>
+
+                <label for="michi-genero">Género:</label>
+                <select id="michi-genero" class="form-control" onchange="actualizarBadge()" required>
+                    <option value="Macho">Macho</option>
+                    <option value="Hembra">Hembra</option>
+                </select>
+
+                <input type="hidden" id="michi-badge" value="boy">
+
+                <label for="michi-edad">Edad:</label>
+                <input type="text" id="michi-edad" class="form-control" placeholder="Ej: 2 meses" required>
+
+                <label for="michi-precio">Precio de Venta ($):</label>
+                <input type="number" id="michi-precio" class="form-control" placeholder="Ej: 500" required>
+
+                <label for="michi-descripcion">Descripción Comercial:</label>
+                <textarea id="michi-descripcion" class="form-control" rows="3" placeholder="Ej: Hermoso Persa..."
+                    required></textarea>
+
+                <label for="michi-foto">Número de Gatito para las Fotos:</label>
+                <input type="number" id="michi-foto" class="form-control" placeholder="Ej: 7" required>
+
+                <button type="submit" class="btn-admin" style="background-color: var(--primary-color);">Generar Código
+                    Comercial JSON</button>
+            </form>
+
+            <textarea id="json-resultado" class="json-output" readonly></textarea>
+        </div>
+    </main>
+
+    <!-- 🚀 VINCULACIÓN DEL SCRIPT DESACOPLADO -->
+    <script src="admin.js"></script>
+</body>
+
+</html>
