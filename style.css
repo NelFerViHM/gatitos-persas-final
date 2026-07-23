@@ -103,20 +103,16 @@ header {
     background: white;
 }
 
-.header-text {
-    text-align: center;
-}
-
 header h1 {
     font-family: 'Fredoka', sans-serif;
     font-size: 2.6rem;
-    color: var(--primary-color);
+    color: rgb(10, 45, 70);
     letter-spacing: -0.5px;
 }
 
 header .subtitle {
     font-size: 1.15rem;
-    color: var(--accent-color);
+    color: rgb(10, 45, 70);
     font-weight: 700;
 }
 
@@ -318,7 +314,7 @@ main {
 h2 {
     font-family: 'Fredoka', sans-serif;
     font-size: 2.1rem;
-    color: var(--primary-color);
+    color: rgb(10, 45, 70);
     margin-bottom: 24px;
     border-bottom: 3px dashed var(--accent-color);
     padding-bottom: 6px;
@@ -423,7 +419,7 @@ p {
 .card-content h3 {
     font-family: 'Fredoka', sans-serif;
     font-size: 1.6rem;
-    color: var(--primary-color);
+    color: rgb(10, 45, 70);
     margin-bottom: 6px;
 }
 
@@ -533,7 +529,7 @@ p {
 .form-group label {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--primary-color);
+    color: rgb(10, 45, 70);
 }
 
 .form-group input,

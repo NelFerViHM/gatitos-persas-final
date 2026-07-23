@@ -171,7 +171,7 @@ async function cargarGatitosDesdeAPI() {
     console.log("Intentando cargar la API de gatitos...");
     const gridContenedor = document.getElementById('contenedor-tarjetas');
 
-    if (!gridContenedor) return; // Si no está en disponibles.html, frena de forma segura
+    if (!gridContenedor) return; // Si no está en la página, frena de forma segura
 
     try {
         const respuesta = await fetch('gatitos.json');
@@ -183,60 +183,71 @@ async function cargarGatitosDesdeAPI() {
         const listaGatitos = await respuesta.json();
         gridContenedor.innerHTML = "";
 
-        listaGatitos.forEach(gatito => {
-            // Creamos un elemento DIV real en memoria para la tarjeta
+        // 🎯 ORDENAMIENTO EN TIEMPO REAL: Fuerza a "disponible" a ir arriba de todo
+        const gatitosOrdenados = [...listaGatitos].sort((a, b) => {
+            if (a.estado === "disponible" && b.estado === "vendido") return -1;
+            if (a.estado === "vendido" && b.estado === "disponible") return 1;
+            return 0;
+        });
+
+        gatitosOrdenados.forEach(gatito => {
             const cardElement = document.createElement('div');
             cardElement.className = 'cat-card';
 
-            // 🚨 1. LÓGICA CONDICIONAL DE RESERVA COMERCIAL
+            // Lógica condicional de botones según tu campo "estado"
             let botonHTML = "";
-            if (gatito.reservado === true || gatito.reservado === "true") {
-                // Si ya está señado: botón gris, cursor bloqueado, sin evento de clic y opacidad a la tarjeta
-                cardElement.style.opacity = "0.75";
+            if (gatito.estado === "vendido") {
+                cardElement.style.opacity = "0.7";
+                botonHTML = `<button class="add-cart-btn" style="background-color: #d35400; cursor: not-allowed; box-shadow: none;" disabled>Vendido 🏡</button>`;
+            } else if (gatito.reservado === true || gatito.reservado === "true") {
+                cardElement.style.opacity = "0.8";
                 botonHTML = `<button class="add-cart-btn" style="background-color: #7f8c8d; cursor: not-allowed; box-shadow: none;" disabled>Reservado 🔒</button>`;
             } else {
-                // Si está libre: tu botón verde original de siempre conectado al carrito
                 botonHTML = `<button class="add-cart-btn" onclick="agregarAlCarrito('${gatito.nombre}')">Reservar</button>`;
             }
 
-            // Inyectamos el HTML de la tarjeta estructural con EDAD y PRECIO
+            // Inyección limpia: Ubica la píldora de Estado AL LADO del Género
             cardElement.innerHTML = `
                 <div class="card-image">
                     <img src="${gatito.imagen}" alt="${gatito.nombre}" class="img-michi-galeria" style="cursor: pointer;">
                 </div>
                 <div class="card-content">
                     <h3>${gatito.nombre}</h3>
-                    <span class="badge ${gatito.badgeClass}">${gatito.genero}</span>
                     
-                    <!-- ⏳ NUEVO DATO VISUAL: EDAD -->
-                    <p style="font-size: 0.95rem; font-weight: 700; color: var(--accent-color); margin: 8px 0 2px 0;">
+                    <!-- 🏷️ SECCIÓN DE ETIQUETAS UNIFICADAS -->
+                    <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 12px; flex-wrap: wrap;">
+                        <span class="badge ${gatito.badgeClass}">${gatito.genero}</span>
+                        <span class="badge-estado" style="padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; 
+                            background-color: ${gatito.estado === 'vendido' ? '#d35400' : '#38b000'}; color: white; display: inline-block;">
+                            ${gatito.estado === 'vendido' ? 'En su nuevo hogar 🏡' : 'Disponible 🟢'}
+                        </span>
+                    </div>
+                    
+                    <p style="font-size: 0.95rem; font-weight: 700; color: var(--accent-color); margin: 6px 0;">
                         ⏳ Edad: ${gatito.edad}
                     </p>
 
                     <p>${gatito.descripcion}</p>
 
-                    <!-- 💰 NUEVO DATO VISUAL: PRECIO COMERCIAL -->
-                    <p class="precio" style="font-weight: 800; font-size: 1.3rem; color: var(--text-color); margin-bottom: 12px;">
-                        $${gatito.precio}
+                    <p class="precio" style="font-weight: 800; font-size: 1.3rem; color: var(--text-color); margin: 8px 0 12px 0;">
+                        $${gatito.precio.trim()}
                     </p>
-
+                    
                     ${botonHTML}
                 </div>
             `;
 
-            // 🌟 TRUCO AVANZADO: Guardamos la lista de fotos directamente en el nodo del DOM mediante Atributos Data
+            // Atributos Data asíncronos para el carrusel de fotos
             const imgElement = cardElement.querySelector('.img-michi-galeria');
             imgElement.dataset.nombre = gatito.nombre;
             imgElement.dataset.galeria = JSON.stringify(gatito.galeria);
 
-            // Escuchamos el clic de forma limpia y aislada desde JS, sin usar "onclick" en texto
             imgElement.addEventListener('click', function () {
                 const nombre = this.dataset.nombre;
                 const galeriaFotos = JSON.parse(this.dataset.galeria);
                 abrirGaleria(nombre, galeriaFotos);
             });
 
-            // Agregamos la tarjeta terminada al contenedor de la pantalla
             gridContenedor.appendChild(cardElement);
         });
 
@@ -245,8 +256,6 @@ async function cargarGatitosDesdeAPI() {
         gridContenedor.innerHTML = `<p style="color:red; font-weight:bold;">⚠️ Error al cargar el catálogo de gatitos. Por favor, intente más tarde.</p>`;
     }
 }
-
-
 
 // ===================================================
 // 4. CARGA DE GATITOS EN EL FORMULARIO

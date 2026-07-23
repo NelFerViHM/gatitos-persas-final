@@ -1,39 +1,220 @@
-[
-    {
+[{
         "id": 1,
-        "nombre": "Kity",
-        "genero": "Hembra",
-        "badgeClass": "girl",
-        "edad": "2 meses",
-        "precio": "consultar",
-        "descripcion": "Persa Himalaya Blue con ojos celestes. Dulce y juguetona.",
-        "imagen": "IMG/gatito_1.jpeg",
+        "nombre": "Ciro",
+        "estado": "vendido",
+        "genero": "Macho",
+        "badgeClass": "boy",
+        "edad": "7 meses",
+        "precio": " consultar",
+        "descripcion": "Persa Himalayo Blue Point pelo largo con ojos celestes.",
+        "imagen": "IMG/Ciro.jpeg",
         "galeria": [
-            "IMG/gatito1_foto1.jpeg",
-            "IMG/gatito1_foto2.jpeg",
-            "IMG/gatito1_foto3.jpeg",
-            "IMG/gatito1_foto4.jpeg",
-            "IMG/gatito1_foto5.jpeg",
-            "IMG/gatito1_foto6.jpeg"
+            "IMG/Ciro_foto1.jpeg",
+            "IMG/Ciro_foto2.jpeg",
+            "IMG/Ciro_foto3.jpeg",
+            "IMG/Ciro_foto4.jpeg",
+            "IMG/Ciro_foto5.jpeg",
+            "IMG/Ciro_foto6.jpeg"
         ],
         "reservado": false
     },
     {
         "id": 2,
+        "nombre": "Agatha",
+        "estado": "vendido",
+        "genero": "Hembra",
+        "badgeClass": "girl",
+        "edad": "3 meses",
+        "precio": " consultar",
+        "descripcion": "Persa Calico Diluido pelo largo. Traviesa y juguetona.",
+        "imagen": "IMG/Agatha.jpeg",
+        "galeria": [
+            "IMG/Agatha_foto1.jpeg",
+            "IMG/Agatha_foto2.jpeg",
+            "IMG/Agatha_foto3.jpeg",
+            "IMG/Agatha_foto4.jpeg",
+            "IMG/Agatha_foto5.jpeg",
+            "IMG/Agatha_foto6.jpeg"
+        ],
+        "reservado": false
+    },
+    {
+        "id": 3,
+        "nombre": "Brigitte",
+        "estado": "vendido",
+        "genero": "Hembra",
+        "badgeClass": "girl",
+        "edad": "3 meses",
+        "precio": " consultar",
+        "descripcion": "Persa Red Tabby Doll Face con ojos verdes. Muy mimosa.",
+        "imagen": "IMG/Brigitte.jpeg",
+        "galeria": [
+            "IMG/Brigitte_foto1.jpeg",
+            "IMG/Brigitte_foto2.jpeg",
+            "IMG/Brigitte_foto3.jpeg",
+            "IMG/Brigitte_foto4.jpeg",
+            "IMG/Brigitte_foto5.jpeg",
+            "IMG/Brigitte_foto6.jpeg"
+        ],
+        "reservado": false
+    },
+    {
+        "id": 4,
+        "nombre": "Chloe",
+        "estado": "vendido",
+        "genero": "Hembra",
+        "badgeClass": "girl",
+        "edad": "3 meses",
+        "precio": " consultar",
+        "descripcion": "Persa Himalaya Red Point ojos azules. Super juguetona",
+        "imagen": "IMG/Chloe.jpeg",
+        "galeria": [
+            "IMG/Chloe_foto1.jpeg",
+            "IMG/Chloe_foto2.jpeg",
+            "IMG/Chloe_foto3.jpeg",
+            "IMG/Chloe_foto4.jpeg",
+            "IMG/Chloe_foto5.jpeg",
+            "IMG/Chloe_foto6.jpeg"
+        ],
+        "reservado": false
+    },
+    {
+        "id": 5,
+        "nombre": "Kathy",
+        "estado": "vendido",
+        "genero": "Hembra",
+        "badgeClass": "girl",
+        "edad": "3 meses",
+        "precio": " consultar",
+        "descripcion": "Persa Himalayo Red Point con ojos azules. Adora el jardín.",
+        "imagen": "IMG/Kathy.jpeg",
+        "galeria": [
+            "IMG/Kathy_foto1.jpeg",
+            "IMG/Kathy_foto2.jpeg",
+            "IMG/Kathy_foto3.jpeg",
+            "IMG/Kathy_foto4.jpeg",
+            "IMG/Kathy_foto5.jpeg",
+            "IMG/Kathy_foto6.jpeg"
+        ],
+        "reservado": false
+    },
+    {
+        "id": 6,
+        "nombre": "Lolo",
+        "estado": "vendido",
+        "genero": "Macho",
+        "badgeClass": "boy",
+        "edad": "2 meses",
+        "precio": " consultar",
+        "descripcion": "Persa Blue con ojos verdes. Adorable y curioso.",
+        "imagen": "IMG/Lolo.jpeg",
+        "galeria": [
+            "IMG/Lolo_foto1.jpeg",
+            "IMG/Lolo_foto2.jpeg",
+            "IMG/Lolo_foto3.jpeg",
+            "IMG/Lolo_foto4.jpeg",
+            "IMG/Lolo_foto5.jpeg",
+            "IMG/Lolo_foto6.jpeg"
+        ],
+        "reservado": false
+    },
+    {
+        "id": 7,
+        "nombre": "Stuart",
+        "estado": "vendido",
+        "genero": "Macho",
+        "badgeClass": "boy",
+        "edad": "4 meses",
+        "precio": " consultar",
+        "descripcion": "Persa Himalayo Blue Point con ojos celestes. Super inteligente.",
+        "imagen": "IMG/Stuart.jpeg",
+        "galeria": [
+            "IMG/Stuart_foto1.jpeg",
+            "IMG/Stuart_foto2.jpeg",
+            "IMG/Stuart_foto3.jpeg",
+            "IMG/Stuart_foto4.jpeg",
+            "IMG/Stuart_foto5.jpeg",
+            "IMG/Stuart_foto6.jpeg"
+        ],
+        "reservado": false
+    },
+    {
+        "id": 8,
+        "nombre": "Simon",
+        "estado": "vendido",
+        "genero": "Macho",
+        "badgeClass": "boy",
+        "edad": "2 meses",
+        "precio": " consultar",
+        "descripcion": "Persa Himalayo Red Point con ojos azules. Un bombon 🍫🍬.",
+        "imagen": "IMG/Simon.jpeg",
+        "galeria": [
+            "IMG/Simon_foto1.jpeg",
+            "IMG/Simon_foto2.jpeg",
+            "IMG/Simon_foto3.jpeg",
+            "IMG/Simon_foto4.jpeg",
+            "IMG/Simon_foto5.jpeg",
+            "IMG/Simon_foto6.jpeg"
+        ],
+        "reservado": false
+    },
+    {
+        "id": 9,
+        "nombre": "Olivia",
+        "estado": "vendido",
+        "genero": "Hembra",
+        "badgeClass": "girl",
+        "edad": "2 meses",
+        "precio": " consultar",
+        "descripcion": "Persa Himalayo Red Point con ojos azules. Divina total 😍❤️.",
+        "imagen": "IMG/Olivia.jpeg",
+        "galeria": [
+            "IMG/Olivia_foto1.jpeg",
+            "IMG/Olivia_foto2.jpeg",
+            "IMG/Olivia_foto3.jpeg",
+            "IMG/Olivia_foto4.jpeg",
+            "IMG/Olivia_foto5.jpeg",
+            "IMG/Olivia_foto6.jpeg"
+        ],
+        "reservado": false
+    },
+    {
+        "id": 10,
+        "nombre": "Kitty",
+        "estado": "disponible",
+        "genero": "Hembra",
+        "badgeClass": "girl",
+        "edad": "2 meses",
+        "precio": " consultar",
+        "descripcion": "Persa Blue con ojos celestes. Pura ternura  ❤️🍫.",
+        "imagen": "IMG/Kitty.jpeg",
+        "galeria": [
+            "IMG/Kitty_foto1.jpeg",
+            "IMG/Kitty_foto2.jpeg",
+            "IMG/Kitty_foto3.jpeg",
+            "IMG/Kitty_foto4.jpeg",
+            "IMG/Kitty_foto5.jpeg",
+            "IMG/Kitty_foto6.jpeg"
+        ],
+        "reservado": false
+    },
+    {
+        "id": 11,
         "nombre": "Pelusa",
+        "estado": "disponible",
         "genero": "Macho",
         "badgeClass": "boy",
         "edad": "2 meses",
         "precio": "consultar",
-        "descripcion": "Persa Himalayo Red Point con ojos celestes. Adora el jardín.",
-        "imagen": "IMG/gatito_2.jpeg",
+        "descripcion": "Persa Himalayo Red Point con ojos azules. Un conquistador.",
+        "imagen": "IMG/Pelusa.jpeg",
         "galeria": [
-            "IMG/gatito2_foto1.jpeg",
-            "IMG/gatito2_foto2.jpeg",
-            "IMG/gatito2_foto3.jpeg",
-            "IMG/gatito2_foto4.jpeg",
-            "IMG/gatito2_foto5.jpeg",
-            "IMG/gatito2_foto6.jpeg"
+            "IMG/Pelusa_foto1.jpeg",
+            "IMG/Pelusa_foto2.jpeg",
+            "IMG/Pelusa_foto3.jpeg",
+            "IMG/Pelusa_foto4.jpeg",
+            "IMG/Pelusa_foto5.jpeg",
+            "IMG/Pelusa_foto6.jpeg"
         ],
         "reservado": false
     }
