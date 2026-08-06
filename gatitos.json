@@ -181,7 +181,7 @@
     {
         "id": 10,
         "nombre": "Kitty",
-        "estado": "disponible",
+        "estado": "vendido",
         "genero": "Hembra",
         "badgeClass": "girl",
         "edad": "2 meses",
